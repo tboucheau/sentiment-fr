@@ -1,5 +1,5 @@
 const nextConfig = {
-  distDir: "build",
+  distDir: "Dist",
 };
 
 module.exports = nextConfig;
