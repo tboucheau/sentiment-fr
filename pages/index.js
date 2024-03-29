@@ -12,7 +12,7 @@ const IndexPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('https://2xgjg7y5cj.execute-api.eu-central-1.amazonaws.com/fr/sentiment-analysis', { data: inputValue });
+      const response = await axios.post('https://nnbgvwnxn1.execute-api.eu-central-1.amazonaws.com/fr/sentiment-analysis', { data: inputValue });
       setResponseData(response.data);
     } catch (error) {
       setError(error);
