@@ -6,12 +6,15 @@ const IndexPage = () => {
   const [inputValue, setInputValue] = useState('');
   const [responseData, setResponseData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // État de chargement
   const router = useRouter();
 
   useEffect(() => {
     const referer = document.referrer;
     if (!referer.includes('app.predai.io')) {
       router.replace('/access-denied'); // Redirige vers une page d'accès refusé
+    } else {
+      setLoading(false); // Termine le chargement si le referer est correct
     }
   }, []);
 
@@ -33,6 +36,10 @@ const IndexPage = () => {
       handleSubmit();
     }
   };
+
+  if (loading) {
+    return null; // Retourne null pendant le chargement pour éviter le flash de la page d'accueil
+  }
 
   return (
     <div className="container">
